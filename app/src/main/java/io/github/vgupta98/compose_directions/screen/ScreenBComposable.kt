@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import io.github.vgupta98.compose_directions.presentation.hiltViewModel
 
 @Composable
 fun ScreenBComposable() {

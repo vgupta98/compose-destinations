@@ -64,7 +64,6 @@ dependencies {
     implementation libs.androidx.material3
     kapt libs.hilt.compiler
     implementation libs.hilt.android
-    implementation libs.compose.navigation.hilt
 
 
     implementation(project(":compose-directions"))
