@@ -67,6 +67,10 @@ class DirectorImpl internal constructor(
         resultListener.registerLambdaForResult(resultCode, onResult)
     }
 
+    override suspend fun onDirectionResult(onResult: (Int, DestinationResult<*>) -> Unit) {
+        resultListener.registerLambdaForResult(onResult)
+    }
+
     override suspend fun postResult(result: DestinationResult<*>) {
         navigationChannel.send(
             NavigationIntent.NavigateBackWithResult(

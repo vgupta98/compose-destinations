@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import io.github.vgupta98.compose_directions.data.Destination
 import io.github.vgupta98.compose_directions.data.NavigationIntent
@@ -17,8 +18,8 @@ internal fun NavigationCallback(
     navHostController: NavHostController,
 ) {
 
-    val resultListener = (director as DirectorImpl).resultListener
-    val navigationFlow = director.navigationFlow
+    val resultListener = remember { (director as DirectorImpl).resultListener }
+    val navigationFlow = remember { (director as DirectorImpl).navigationFlow }
 
     LaunchedEffect(Unit) {
 

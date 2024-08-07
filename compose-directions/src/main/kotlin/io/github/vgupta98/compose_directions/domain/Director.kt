@@ -28,6 +28,10 @@ interface Director {
         onResult: (DestinationResult<*>) -> Unit
     )
 
+    suspend fun onDirectionResult(
+        onResult: (Int, DestinationResult<*>) -> Unit
+    )
+
     suspend fun postResult(
         result: DestinationResult<*>
     )
