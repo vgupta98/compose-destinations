@@ -20,11 +20,7 @@ abstract class Destination<D : Destination<D>>(open val config: DestinationConfi
             CONFIG to this.config.stringifyConfig()
         )
 
-        return if (resultCode == null) {
-            route
-        } else {
-            "$route?$RESULT_CODE=$resultCode"
-        }
+        return "$route?$RESULT_CODE=${resultCode ?: 0}"
     }
 }
 
@@ -33,11 +29,8 @@ abstract class NoArgumentsDestination<D : Destination<D>> : Destination<D>(NoArg
     override val fullRoute = "$destinationName?$RESULT_CODE={$RESULT_CODE}"
 
     @RestrictTo(RestrictTo.Scope.LIBRARY)
-    override operator fun invoke(resultCode: Int?): String = if (resultCode == null) {
-        destinationName
-    } else {
-        "$destinationName?$RESULT_CODE=$resultCode"
-    }
+    override operator fun invoke(resultCode: Int?): String =
+        "$destinationName?$RESULT_CODE=${resultCode ?: 0}"
 }
 
 abstract class NavDialogDestination<D : Destination<D>>(

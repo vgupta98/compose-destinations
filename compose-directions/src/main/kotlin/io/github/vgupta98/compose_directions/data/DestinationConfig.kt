@@ -7,7 +7,7 @@ import com.google.gson.Gson
 import io.github.vgupta98.compose_directions.data.DestinationConfig.Companion.retrieveConfig
 import java.lang.ClassCastException
 
-abstract class DestinationConfig<D : Destination<D>> {
+interface DestinationConfig<D : Destination<D>> {
 
     companion object {
 
@@ -28,7 +28,7 @@ abstract class DestinationConfig<D : Destination<D>> {
     }
 }
 
-internal class NoArgumentsConfig<D: Destination<D>>: DestinationConfig<D>()
+internal class NoArgumentsConfig<D: Destination<D>>: DestinationConfig<D>
 
 @MainThread
 inline fun <reified T : DestinationConfig<D>, D : Destination<D>> SavedStateHandle.getConfig(): T {

@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import io.github.vgupta98.compose_directions.presentation.hiltViewModel
 
 @Composable
-fun ScreenBComposable() {
+fun ScreenB() {
     val viewModel: ScreenBViewModel = hiltViewModel()
 
     Column(
@@ -28,6 +28,10 @@ fun ScreenBComposable() {
             viewModel.postResult()
         }) {
             Text("post result")
+        }
+        Spacer(modifier = Modifier.size(48.dp))
+        Button(onClick = { viewModel.navigateToC() }) {
+            Text(text = "Navigate to C")
         }
     }
 }

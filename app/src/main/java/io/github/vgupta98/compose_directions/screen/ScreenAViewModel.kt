@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.vgupta98.compose_directions.ScreenB
+import io.github.vgupta98.compose_directions.ScreenBDestination
 import io.github.vgupta98.compose_directions.ScreenBResult
 import io.github.vgupta98.compose_directions.domain.Director
 import kotlinx.coroutines.launch
@@ -34,7 +34,7 @@ class ScreenAViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             director.directForResult(
-                destination = ScreenB,
+                destination = ScreenBDestination,
                 resultCode = RESULT_CODE
             )
         }

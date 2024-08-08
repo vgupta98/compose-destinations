@@ -1,9 +1,7 @@
 package io.github.vgupta98.compose_directions.domain
 
 import io.github.vgupta98.compose_directions.data.DestinationResult
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.MutableSharedFlow
 
 internal interface ResultListener {
 
@@ -16,16 +14,13 @@ internal interface ResultListener {
 
 internal class ResultListenerImpl : ResultListener {
 
-    private val resultChannel = Channel<Pair<Int, DestinationResult<*>>>(
-        capacity = Int.MAX_VALUE,
-        onBufferOverflow = BufferOverflow.DROP_LATEST,
-    )
+    private val resultChannel = MutableSharedFlow<Pair<Int, DestinationResult<*>>>()
 
     override suspend fun registerLambdaForResult(
         resultCode: Int,
         onResult: (DestinationResult<*>) -> Unit
     ) {
-        resultChannel.receiveAsFlow().collect { result ->
+        resultChannel.collect { result ->
             result.let {
                 if (result.first == resultCode) {
                     onResult.invoke(result.second)
@@ -35,12 +30,12 @@ internal class ResultListenerImpl : ResultListener {
     }
 
     override suspend fun registerLambdaForResult(onResult: (Int, DestinationResult<*>) -> Unit) {
-        resultChannel.receiveAsFlow().collect { result ->
+        resultChannel.collect { result ->
             onResult.invoke(result.first, result.second)
         }
     }
 
     override suspend fun updateResult(resultCode: Int, result: DestinationResult<*>) {
-        resultChannel.send(resultCode to result)
+        resultChannel.emit(resultCode to result)
     }
 }

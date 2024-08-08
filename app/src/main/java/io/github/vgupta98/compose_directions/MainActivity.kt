@@ -13,8 +13,9 @@ import io.github.vgupta98.compose_directions.domain.Director
 import io.github.vgupta98.compose_directions.presentation.NavHost
 import io.github.vgupta98.compose_directions.presentation.composable
 import io.github.vgupta98.compose_directions.ui.theme.ComposedirectionsTheme
-import io.github.vgupta98.compose_directions.screen.ScreenAComposable
-import io.github.vgupta98.compose_directions.screen.ScreenBComposable
+import io.github.vgupta98.compose_directions.screen.ScreenA
+import io.github.vgupta98.compose_directions.screen.ScreenB
+import io.github.vgupta98.compose_directions.screen.ScreenC
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -31,16 +32,19 @@ class MainActivity : ComponentActivity() {
             ComposedirectionsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
-                        startDestination = ScreenA,
+                        startDestination = ScreenADestination,
                         modifier = Modifier.padding(innerPadding),
                         director = director,
                         activity = this
                     ) {
-                        composable<ScreenA> {
-                            ScreenAComposable()
+                        composable<ScreenADestination> {
+                            ScreenA()
                         }
-                        composable<ScreenB> {
-                            ScreenBComposable()
+                        composable<ScreenBDestination> {
+                            ScreenB()
+                        }
+                        composable<ScreenCDestination> {
+                            ScreenC()
                         }
                     }
                 }

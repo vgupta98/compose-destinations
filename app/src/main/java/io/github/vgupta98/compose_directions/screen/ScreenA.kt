@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import io.github.vgupta98.compose_directions.presentation.hiltViewModel
 
 @Composable
-fun ScreenAComposable() {
+fun ScreenA() {
     val viewModel = hiltViewModel<ScreenAViewModel>()
 
     Column(
