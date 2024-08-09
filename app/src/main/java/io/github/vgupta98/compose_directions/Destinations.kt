@@ -27,5 +27,6 @@ class ScreenDDestination(
 
 data class ScreenDConfig(
     val destinationType1s: List<DestinationType1>,
-    val destinationType2: DestinationType2
+    val destinationType2: DestinationType2,
+    val destinationType3: DestinationType3
 ): DestinationConfig<ScreenDDestination>

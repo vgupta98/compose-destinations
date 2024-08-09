@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.vgupta98.compose_directions.DestinationType1
 import io.github.vgupta98.compose_directions.DestinationType2
+import io.github.vgupta98.compose_directions.DestinationType3
 import io.github.vgupta98.compose_directions.ScreenCConfig
 import io.github.vgupta98.compose_directions.ScreenDConfig
 import io.github.vgupta98.compose_directions.ScreenDDestination
@@ -33,7 +34,8 @@ class ScreenCViewModel @Inject constructor(
                             DestinationType1.SomeType,
                             DestinationType1.SomeOtherType("random text")
                         ),
-                        destinationType2 = DestinationType2.Type1
+                        destinationType2 = DestinationType2.Type1,
+                        destinationType3 = DestinationType3.TYPE1
                     )
                 )
             )

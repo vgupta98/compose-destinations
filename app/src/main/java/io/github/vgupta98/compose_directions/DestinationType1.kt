@@ -17,3 +17,7 @@ sealed interface DestinationType2 {
         val text: String
     ): DestinationType2
 }
+
+enum class DestinationType3 {
+    TYPE1, TYPE2
+}

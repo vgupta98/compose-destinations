@@ -1,4 +1,4 @@
-package io.github.vgupta98.compose_directions.data
+package io.github.vgupta98.compose_directions.data.adapter
 
 import androidx.annotation.RestrictTo
 import com.google.gson.Gson

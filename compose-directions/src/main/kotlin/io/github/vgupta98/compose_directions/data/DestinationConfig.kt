@@ -6,6 +6,8 @@ import androidx.lifecycle.SavedStateHandle
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import io.github.vgupta98.compose_directions.data.DestinationConfig.Companion.retrieveConfig
+import io.github.vgupta98.compose_directions.data.adapter.EnumTypeAdapterFactory
+import io.github.vgupta98.compose_directions.data.adapter.SealedClassTypeAdapterFactory
 import java.lang.ClassCastException
 
 interface DestinationConfig<D : Destination<D>> {
@@ -21,6 +23,7 @@ interface DestinationConfig<D : Destination<D>> {
         @RestrictTo(RestrictTo.Scope.LIBRARY)
         val gson: Gson = GsonBuilder()
             .registerTypeAdapterFactory(SealedClassTypeAdapterFactory())
+            .registerTypeAdapterFactory(EnumTypeAdapterFactory())
             .create()
     }
 
