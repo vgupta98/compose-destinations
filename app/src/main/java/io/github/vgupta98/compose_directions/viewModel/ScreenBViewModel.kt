@@ -1,4 +1,4 @@
-package io.github.vgupta98.compose_directions.screen
+package io.github.vgupta98.compose_directions.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

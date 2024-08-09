@@ -1,4 +1,4 @@
-package io.github.vgupta98.compose_directions.screen
+package io.github.vgupta98.compose_directions.viewModel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

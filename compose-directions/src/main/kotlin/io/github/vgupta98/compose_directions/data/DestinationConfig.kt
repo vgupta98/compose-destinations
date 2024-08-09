@@ -4,6 +4,7 @@ import androidx.annotation.MainThread
 import androidx.annotation.RestrictTo
 import androidx.lifecycle.SavedStateHandle
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import io.github.vgupta98.compose_directions.data.DestinationConfig.Companion.retrieveConfig
 import java.lang.ClassCastException
 
@@ -18,7 +19,9 @@ interface DestinationConfig<D : Destination<D>> {
         }
 
         @RestrictTo(RestrictTo.Scope.LIBRARY)
-        val gson = Gson()
+        val gson: Gson = GsonBuilder()
+            .registerTypeAdapterFactory(SealedClassTypeAdapterFactory())
+            .create()
     }
 
     @RestrictTo(RestrictTo.Scope.LIBRARY)

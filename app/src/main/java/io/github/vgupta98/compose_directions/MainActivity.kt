@@ -16,6 +16,7 @@ import io.github.vgupta98.compose_directions.ui.theme.ComposedirectionsTheme
 import io.github.vgupta98.compose_directions.screen.ScreenA
 import io.github.vgupta98.compose_directions.screen.ScreenB
 import io.github.vgupta98.compose_directions.screen.ScreenC
+import io.github.vgupta98.compose_directions.screen.ScreenD
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -45,6 +46,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable<ScreenCDestination> {
                             ScreenC()
+                        }
+                        composable<ScreenDDestination> {
+                            ScreenD()
                         }
                     }
                 }

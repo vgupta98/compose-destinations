@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import io.github.vgupta98.compose_directions.presentation.hiltViewModel
+import io.github.vgupta98.compose_directions.viewModel.ScreenBViewModel
 
 @Composable
 fun ScreenB() {

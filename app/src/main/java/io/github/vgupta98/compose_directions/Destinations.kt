@@ -20,3 +20,12 @@ class ScreenCDestination(
 data class ScreenCConfig(
     val text: String,
 ): DestinationConfig<ScreenCDestination>
+
+class ScreenDDestination(
+    override val config: ScreenDConfig
+): Destination<ScreenDDestination>(config)
+
+data class ScreenDConfig(
+    val destinationType1s: List<DestinationType1>,
+    val destinationType2: DestinationType2
+): DestinationConfig<ScreenDDestination>
