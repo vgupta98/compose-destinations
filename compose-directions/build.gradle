@@ -12,8 +12,8 @@ android {
 
     defaultConfig {
         minSdk 24
-        versionCode 5
-        versionName "1.4.0"
+        versionCode 6
+        versionName "1.4.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -66,7 +66,7 @@ afterEvaluate {
 
                 groupId = 'com.github.vgupta98'
                 artifactId = 'compose-directions'
-                version = '1.4.0'
+                version = '1.4.1'
             }
         }
     }
